@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<script>
+		function enviarDatosBusquedaUsuario(idFormulario, action, resultados) {
+			let formulario = document.getElementById(idFormulario);
+
+			//1. Crear el objeto XHR para envir los datos al servidor
+			let xhr = new XMLHttpRequest();
+
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					let divResultados = document.getElementById(resultados);
+					divResultados.innerHTML = xhr.responseText;
+				}
+			};
+
+			let url = `servicios.php?categoria=${formulario.categoria.value}&action=${action}`;
+			xhr.open("GET", url);
+			xhr.send();
+
+		}
+	</script>
+
+<script>
+	function enviarDatosBusquedaUsuario(idFormulario, action, resultados) {
+		let formulario = document.getElementById(idFormulario);
+
+		//1. Crear el objeto XHR para envir los datos al servidor
+		let xhr = new XMLHttpRequest();
+
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				let divResultados = document.getElementById(resultados);
+				divResultados.innerHTML = xhr.responseText;
+			}
+		};
+
+		let url = `servicios.php?tarifa=${formulario.tarifa.value}&action=${action}`;
+		xhr.open("GET", url);
+		xhr.send();
+
+	}
+</script>
+
+
+
+
+	<!--
+			CSS
+			============================================= -->
+	<link rel="stylesheet" href="../css/linearicons.css">
+	<link rel="stylesheet" href="../css/owl.carousel.css">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/nice-select.css">
+	<link rel="stylesheet" href="../css/magnific-popup.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+	<header id="header" id="home">
+		<div class="container">
+			<div class="row header-top align-items-center">
+				<div class="col-lg-1 col-sm-3 menu-top-middle justify-content-center d-flex">
+					<a href="../index.html">
+						<img class="img-fluid" src="../img/elefantegym.png" alt="">
+					</a>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="container">
+			<div class="row align-items-center justify-content-center d-flex">
+				<nav id="nav-menu-container">
+					<ul class="nav-menu">
+						<li class="menu-active"><a href="../index.html#home">Home</a></li>
+						<li><a href="../generic.html#tarifa">Tarifa</a></li>
+						<li><a href="../generic.html#registro">registro</a></li>
+
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<!-- About Generic Start -->
+	<div class="main-wrapper">
+
+
+		<!-- plan -->
+		<section class="price-area pt-100" id="plan">
+			<div class="container">
+				<div class="row d-flex justify-content-center">
+					<div class="menu-content pb-60 col-lg-8">
+						<div class="title text-center">
+							<h1 class="mb-10">FILTRADO</h1>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="single-price">
+							<div class="top-sec d-flex justify-content-between">
+								<div class="top-center">
+									<h1>Usuario 1</h1>
+								</div>
+							</div>
+							<div class="end-sec">
+								<form id="usuario1">
+									Categoria:
+									<select name="categoria">
+										<option value="platino">Platino</option>
+										<option value="one">One</option>
+										<option value="premium">Premium</option>
+										<option value="classic">Classic</option>
+										<option value="super">Super</option>
+										<option value="zonal">Zonal</option>
+									</select>
+									<input type="button" value="Buscar" name="action"
+										onClick="enviarDatosBusquedaUsuario('usuario1', 'Buscar', 'resultados1')">
+									<input type="button" value="Ver todos" name="action"
+										onClick="enviarDatosBusquedaUsuario('usuario1', 'Ver todos', 'resultados1')">
+								</form>
+								<form id="usuario1">
+									Tarifa:
+									<select name="tarifa">
+										<option value="trimestral">Tarifa Trimestral</option>
+										<option value="semestral">Tarifa Semestral</option>
+										<option value="anual">Tarifa Anual</option>
+									</select>
+									<input type="button" value="Buscar" name="action"
+										onClick="enviarDatosBusquedaUsuario('usuario1', 'Buscar', 'resultados1')">
+									<input type="button" value="Ver todos" name="action"
+										onClick="enviarDatosBusquedaUsuario('usuario1', 'Ver todos', 'resultados1')">
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4">
+						<div class="single-price">
+							<div class="top-sec d-flex justify-content-between">
+								<div class="top-center">
+									<h1>Usuario 2</h1>
+								</div>
+							</div>
+							<div class="end-sec">
+								<form id="usuario2">
+									Categoria:
+									<select name="categoria">
+										<option value="platino">Platino</option>
+										<option value="one">One</option>
+										<option value="premium">Premium</option>
+										<option value="classic">Classic</option>
+										<option value="super">Super</option>
+										<option value="zonal">Zonal</option>
+									</select>
+									Tarifa:
+									<select name="tarifa">
+										<option value="trimestral">Tarifa Trimestral</option>
+										<option value="semestral">Tarifa Semestral</option>
+										<option value="anual">Tarifa Anual</option>
+									</select>
+									<input type="button" value="Buscar" name="action"
+										onClick="enviarDatosBusquedaUsuario('usuario2', 'Buscar', 'resultados2')">
+									<input type="button" value="Ver todos" name="action"
+										onClick="enviarDatosBusquedaUsuario('usuario2', 'Ver todos', 'resultados2')">
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4">
+						<div class="single-price">
+							<div class="top-sec d-flex justify-content-between">
+								<div class="top-center">
+									<h1>Usuario 3</h1>
+								</div>
+							</div>
+							<div class="end-sec">
+								<form id="usuario3">
+									Categoria:
+									<select name="categoria">
+										<option value="platino">Platino</option>
+										<option value="one">One</option>
+										<option value="premium">Premium</option>
+										<option value="classic">Classic</option>
+										<option value="super">Super</option>
+										<option value="zonal">Zonal</option>
+									</select>
+									Tarifa:
+									<select name="tarifa">
+										<option value="trimestral">Tarifa Trimestral</option>
+										<option value="semestral">Tarifa Semestral</option>
+										<option value="anual">Tarifa Anual</option>
+									</select>
+									<input type="button" value="Buscar" name="action"
+										onClick="enviarDatosBusquedaUsuario('usuario3', 'Buscar', 'resultados3')">
+									<input type="button" value="Ver todos" name="action"
+										onClick="enviarDatosBusquedaUsuario('usuario3', 'Ver todos', 'resultados3')">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<table width="100%"></table>
+					<div class="single-price">
+						<div class="top-sec d-flex justify-content-between">
+							<table width="100%">
+								<tr>
+									<td>
+										<div id="resultados1">
+										</div>
+									</td>
+									<td>
+										<div id="resultados2">
+										</div>
+									</td>
+									<td>
+										<div id="resultados3">
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</table>
+			</div>
+		</section>
+		<!-- End price Area -->
+
+
+		<script src="../js/vendor/jquery-2.2.4.min.js"></script>
+		<script src="../https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"></script>
+		<script src="../js/vendor/bootstrap.min.js"></script>
+		<script type="../text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+		<script src="../js/easing.min.js"></script>
+		<script src="../js/hoverIntent.js"></script>
+		<script src="../js/superfish.min.js"></script>
+		<script src="../js/jquery.ajaxchimp.min.js"></script>
+		<script src="../js/jquery.magnific-popup.min.js"></script>
+		<script src="../js/owl.carousel.min.js"></script>
+		<script src="../js/jquery.sticky.js"></script>
+		<script src="../js/jquery.nice-select.min.js"></script>
+		<script src="../js/parallax.min.js"></script>
+		<script src="../js/waypoints.min.js"></script>
+		<script src="../js/jquery.counterup.min.js"></script>
+		<script src="../js/mail-script.js"></script>
+		<script src="../js/main.js"></script>
+</body>
+
+</html>
